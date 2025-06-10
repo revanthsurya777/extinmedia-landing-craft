@@ -18,6 +18,7 @@ const FinalCTA = () => {
             <Button 
               size="lg" 
               className="bg-white hover:bg-white/90 text-[#001F3F] px-8 py-6 text-lg font-semibold min-w-64"
+              onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
             >
               Get Started Now
             </Button>
@@ -25,6 +26,7 @@ const FinalCTA = () => {
               size="lg" 
               variant="outline" 
               className="px-8 py-6 text-lg font-semibold min-w-64 border-white text-white hover:bg-white hover:text-[#001F3F]"
+              onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
             >
               Schedule a Call
             </Button>

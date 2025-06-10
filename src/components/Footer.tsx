@@ -91,7 +91,10 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
               />
-              <Button className="w-full bg-white hover:bg-white/90 text-[#001F3F]">
+              <Button 
+                className="w-full bg-white hover:bg-white/90 text-[#001F3F]"
+                onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
+              >
                 <Mail className="mr-2 h-4 w-4" />
                 Subscribe
               </Button>

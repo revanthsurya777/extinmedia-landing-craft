@@ -41,7 +41,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button className="bg-[#001F3F] hover:bg-[#001F3F]/90 text-white">
+            <Button 
+              className="bg-[#001F3F] hover:bg-[#001F3F]/90 text-white"
+              onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
+            >
               Get Started
             </Button>
           </div>
@@ -68,7 +71,10 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <Button className="w-full bg-[#001F3F] hover:bg-[#001F3F]/90 text-white">
+            <Button 
+              className="w-full bg-[#001F3F] hover:bg-[#001F3F]/90 text-white"
+              onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
+            >
               Get Started
             </Button>
           </div>

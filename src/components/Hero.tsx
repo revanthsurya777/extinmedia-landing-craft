@@ -32,6 +32,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-[#001F3F] hover:bg-[#001F3F]/90 text-white px-8 py-6 text-lg font-semibold min-w-64"
+              onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
             >
               Book a Free Consultation
             </Button>
