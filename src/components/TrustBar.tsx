@@ -1,12 +1,30 @@
 
 const TrustBar = () => {
   const partners = [
-    "Google Partner",
-    "Meta Business",
-    "HubSpot Certified",
-    "Shopify Plus",
-    "WordPress VIP",
-    "Salesforce",
+    {
+      name: "Google Partner",
+      logo: "🔍"
+    },
+    {
+      name: "Meta Business",
+      logo: "📘"
+    },
+    {
+      name: "HubSpot Certified",
+      logo: "🧡"
+    },
+    {
+      name: "Shopify Plus",
+      logo: "🛍️"
+    },
+    {
+      name: "WordPress VIP",
+      logo: "📝"
+    },
+    {
+      name: "Salesforce",
+      logo: "☁️"
+    },
   ];
 
   return (
@@ -22,10 +40,11 @@ const TrustBar = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center px-6 py-4 bg-background rounded-lg border border-border hover:border-[#001F3F] transition-colors duration-300"
+              className="flex items-center justify-center px-6 py-4 bg-background rounded-lg border border-border hover:border-[#001F3F] transition-all duration-300 hover:scale-105"
             >
+              <span className="text-2xl mr-3">{partner.logo}</span>
               <span className="text-foreground font-semibold text-sm lg:text-base">
-                {partner}
+                {partner.name}
               </span>
             </div>
           ))}

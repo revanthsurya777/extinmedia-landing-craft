@@ -11,30 +11,30 @@ const KeyMetrics = () => {
   const targetSatisfaction = 99.8;
 
   useEffect(() => {
-    const duration = 3000; // 3 seconds for smoother animation
-    const steps = 100;
-    const studentsIncrement = targetStudents / steps;
-    const projectsIncrement = targetProjects / steps;
-    const satisfactionIncrement = targetSatisfaction / steps;
-
-    let currentStep = 0;
+    const duration = 2500; // 2.5 seconds
+    const frameRate = 60; // 60 FPS
+    const totalFrames = Math.round(duration / (1000 / frameRate));
+    
+    let currentFrame = 0;
+    
     const timer = setInterval(() => {
-      currentStep++;
+      currentFrame++;
+      const progress = currentFrame / totalFrames;
       
-      // Add some randomness to make it look more natural
-      const randomFactor = 0.8 + Math.random() * 0.4;
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       
-      setStudentsCount(Math.floor(studentsIncrement * currentStep * randomFactor));
-      setProjectsCount(Math.floor(projectsIncrement * currentStep * randomFactor));
-      setSatisfaction(parseFloat((satisfactionIncrement * currentStep * randomFactor).toFixed(1)));
+      setStudentsCount(Math.floor(targetStudents * easeOutQuart));
+      setProjectsCount(Math.floor(targetProjects * easeOutQuart));
+      setSatisfaction(parseFloat((targetSatisfaction * easeOutQuart).toFixed(1)));
 
-      if (currentStep >= steps) {
+      if (currentFrame >= totalFrames) {
         setStudentsCount(targetStudents);
         setProjectsCount(targetProjects);
         setSatisfaction(targetSatisfaction);
         clearInterval(timer);
       }
-    }, duration / steps);
+    }, 1000 / frameRate);
 
     return () => clearInterval(timer);
   }, []);
@@ -84,7 +84,7 @@ const KeyMetrics = () => {
               key={index}
               className="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
-              <div className={`text-4xl md:text-5xl font-bold mb-2 ${metric.isAnimated ? 'animate-pulse' : ''}`}>
+              <div className="text-4xl md:text-5xl font-bold mb-2">
                 <span className="inline-block transition-all duration-300 hover:scale-110">
                   {metric.value}{metric.suffix}
                 </span>
