@@ -40,9 +40,10 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="px-8 py-6 text-lg font-semibold min-w-64 border-[#001F3F] text-[#001F3F] hover:bg-[#001F3F] hover:text-white"
+              onClick={() => window.open('https://youtu.be/e1-vF9YUNB0', '_blank')}
             >
               <Play className="mr-2 h-5 w-5" />
-              Watch Demo
+              Watch
             </Button>
           </div>
 
