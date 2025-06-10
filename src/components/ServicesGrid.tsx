@@ -87,8 +87,9 @@ const ServicesGrid = () => {
                 className="group p-6 bg-background rounded-xl border border-border hover:border-[#001F3F] transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="p-3 bg-[#001F3F]/10 rounded-lg group-hover:bg-[#001F3F] transition-colors duration-300">
-                    <Icon className="h-8 w-8 text-[#001F3F] group-hover:text-white transition-colors duration-300" />
+                  <div className="p-3 bg-[#001F3F]/10 rounded-lg group-hover:bg-[#001F3F] transition-all duration-300 relative overflow-hidden">
+                    <Icon className="h-8 w-8 text-[#001F3F] group-hover:text-white transition-all duration-300 animate-pulse group-hover:animate-bounce" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">
                     {service.title}

@@ -4,35 +4,35 @@ import { Star } from "lucide-react";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Priya Sharma",
       company: "TechStart Inc.",
       image: "/placeholder.svg",
       rating: 5,
       quote: "Extinmedia transformed our digital presence completely. Our lead generation increased by 300% in just 3 months!"
     },
     {
-      name: "Michael Chen",
+      name: "Arjun Patel",
       company: "E-commerce Pro",
       image: "/placeholder.svg",
       rating: 5,
       quote: "The AI-generated content and SEO optimization helped us rank #1 for our target keywords. Incredible results!"
     },
     {
-      name: "Emily Rodriguez",
+      name: "Ananya Gupta",
       company: "Local Business Hub",
       image: "/placeholder.svg",
       rating: 5,
       quote: "Their GEO services brought customers directly to our door. Local visibility increased dramatically."
     },
     {
-      name: "David Park",
+      name: "Vikram Singh",
       company: "Growth Ventures",
       image: "/placeholder.svg",
       rating: 5,
       quote: "Professional team, data-driven approach, and outstanding ROI. Extinmedia delivers on every promise."
     },
     {
-      name: "Lisa Thompson",
+      name: "Kavya Reddy",
       company: "Creative Agency",
       image: "/placeholder.svg",
       rating: 5,

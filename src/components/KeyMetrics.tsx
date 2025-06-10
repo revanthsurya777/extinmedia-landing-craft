@@ -4,25 +4,34 @@ import { useEffect, useState } from "react";
 const KeyMetrics = () => {
   const [studentsCount, setStudentsCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
+  const [satisfaction, setSatisfaction] = useState(0);
 
   const targetStudents = 5000;
   const targetProjects = 1200;
+  const targetSatisfaction = 99.8;
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds
-    const steps = 60;
+    const duration = 3000; // 3 seconds for smoother animation
+    const steps = 100;
     const studentsIncrement = targetStudents / steps;
     const projectsIncrement = targetProjects / steps;
+    const satisfactionIncrement = targetSatisfaction / steps;
 
     let currentStep = 0;
     const timer = setInterval(() => {
       currentStep++;
-      setStudentsCount(Math.floor(studentsIncrement * currentStep));
-      setProjectsCount(Math.floor(projectsIncrement * currentStep));
+      
+      // Add some randomness to make it look more natural
+      const randomFactor = 0.8 + Math.random() * 0.4;
+      
+      setStudentsCount(Math.floor(studentsIncrement * currentStep * randomFactor));
+      setProjectsCount(Math.floor(projectsIncrement * currentStep * randomFactor));
+      setSatisfaction(parseFloat((satisfactionIncrement * currentStep * randomFactor).toFixed(1)));
 
       if (currentStep >= steps) {
         setStudentsCount(targetStudents);
         setProjectsCount(targetProjects);
+        setSatisfaction(targetSatisfaction);
         clearInterval(timer);
       }
     }, duration / steps);
@@ -34,22 +43,26 @@ const KeyMetrics = () => {
     {
       value: studentsCount.toLocaleString(),
       label: "Students Trained",
-      suffix: "+"
+      suffix: "+",
+      isAnimated: true
     },
     {
       value: projectsCount.toLocaleString(),
       label: "Projects Completed",
-      suffix: "+"
+      suffix: "+",
+      isAnimated: true
     },
     {
-      value: "99.8",
+      value: satisfaction.toFixed(1),
       label: "Client Satisfaction",
-      suffix: "%"
+      suffix: "%",
+      isAnimated: true
     },
     {
       value: "24/7",
       label: "Support Available",
-      suffix: ""
+      suffix: "",
+      isAnimated: false
     }
   ];
 
@@ -69,10 +82,12 @@ const KeyMetrics = () => {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20"
+              className="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                {metric.value}{metric.suffix}
+              <div className={`text-4xl md:text-5xl font-bold mb-2 ${metric.isAnimated ? 'animate-pulse' : ''}`}>
+                <span className="inline-block transition-all duration-300 hover:scale-110">
+                  {metric.value}{metric.suffix}
+                </span>
               </div>
               <div className="text-lg text-white/80 font-medium">
                 {metric.label}
