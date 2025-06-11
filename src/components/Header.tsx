@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,84 +20,114 @@ const Header = () => {
     { name: "Services", href: "#services" },
     { name: "About", href: "#about" },
     { name: "Testimonials", href: "#testimonials" },
-    { name: "Stats", href: "#stats" },
+    { name: "Portfolio", href: "#stats" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-background/80 backdrop-blur-lg border-b border-border/50 premium-shadow' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-[#001F3F] to-blue-600 bg-clip-text text-transparent">
-              Extinmedia
+    <>
+      {/* Top Contact Bar */}
+      <div className="bg-gradient-to-r from-[#001F3F] to-[#003366] text-white py-2 hidden md:block">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex justify-between items-center text-sm">
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <span className="font-semibold">Best Digital Marketing Agency in Hyderabad</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4" />
+                <span>contact@extinmedia.com</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <span>+91 9876543210</span>
+              </div>
             </div>
           </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="relative text-sm font-semibold text-foreground hover:text-[#001F3F] transition-all duration-300 group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#001F3F] transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex">
-            <Button 
-              className="group bg-gradient-to-r from-[#001F3F] to-[#003366] hover:from-[#002a5c] hover:to-[#004080] text-white font-semibold px-6 py-3 premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105 relative overflow-hidden"
-              onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
-            >
-              <div className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative z-10">Get Started</span>
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-secondary/50 transition-colors duration-200"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-6 space-y-6 glass-effect rounded-2xl mt-4 mb-4 border border-border/20">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block text-sm font-semibold text-foreground hover:text-[#001F3F] transition-colors duration-200 px-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="px-4">
+      {/* Main Header */}
+      <header className={`sticky top-0 z-50 transition-all duration-700 ${
+        isScrolled 
+          ? 'bg-background/90 backdrop-blur-xl border-b border-border/30 premium-shadow' 
+          : 'bg-transparent'
+      }`}>
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex h-20 items-center justify-between">
+            {/* Enhanced Logo */}
+            <div className="flex items-center group">
+              <div className="text-2xl font-black bg-gradient-to-r from-[#001F3F] to-blue-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                Extin<span className="text-[#001F3F]">Media</span>
+              </div>
+              <div className="ml-2 text-xs text-muted-foreground font-semibold hidden sm:block">
+                Digital Marketing Experts
+              </div>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="relative text-sm font-bold text-foreground hover:text-[#001F3F] transition-all duration-300 group py-2"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#001F3F] to-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
+            </nav>
+
+            {/* Enhanced CTA Button */}
+            <div className="hidden md:flex">
               <Button 
-                className="w-full bg-gradient-to-r from-[#001F3F] to-[#003366] hover:from-[#002a5c] hover:to-[#004080] text-white font-semibold"
+                className="group bg-gradient-to-r from-[#001F3F] to-[#003366] hover:from-[#002a5c] hover:to-[#004080] text-white font-bold px-8 py-3 premium-shadow hover:premium-shadow-hover transition-all duration-700 hover:scale-105 relative overflow-hidden rounded-xl"
                 onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
               >
-                Get Started
+                <div className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="relative z-10">Get Free Consultation</span>
               </Button>
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2 rounded-xl hover:bg-secondary/50 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-        )}
-      </div>
-    </header>
+
+          {/* Enhanced Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="md:hidden py-8 space-y-8 glass-effect rounded-2xl mt-4 mb-4 border border-border/20 premium-shadow">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-lg font-bold text-foreground hover:text-[#001F3F] transition-colors duration-200 px-6"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <div className="px-6">
+                <Button 
+                  className="w-full bg-gradient-to-r from-[#001F3F] to-[#003366] hover:from-[#002a5c] hover:to-[#004080] text-white font-bold py-4 rounded-xl premium-shadow"
+                  onClick={() => window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank')}
+                >
+                  Get Free Consultation
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 
