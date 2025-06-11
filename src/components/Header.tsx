@@ -24,6 +24,13 @@ const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const clientLogos = [
+    { name: "TechM", color: "text-blue-600" },
+    { name: "Infy", color: "text-purple-600" },
+    { name: "HITEC", color: "text-emerald-600" },
+    { name: "Cyient", color: "text-orange-600" },
+  ];
+
   return (
     <>
       {/* Top Contact Bar */}
@@ -58,13 +65,25 @@ const Header = () => {
       }`}>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Enhanced Logo */}
-            <div className="flex items-center group">
-              <div className="text-2xl font-black bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                Extin<span className="text-purple-700">Media</span>
+            {/* Enhanced Logo with Client Logos */}
+            <div className="flex flex-col items-start group">
+              <div className="flex items-center">
+                <div className="text-2xl font-black bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                  Extin<span className="text-purple-700">Media</span>
+                </div>
+                <div className="ml-3 px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">
+                  Digital Marketing Experts
+                </div>
               </div>
-              <div className="ml-2 text-xs text-purple-600 font-semibold hidden sm:block">
-                Digital Marketing Experts
+              
+              {/* Client Logos Row */}
+              <div className="flex items-center space-x-2 mt-1">
+                <span className="text-xs text-muted-foreground font-medium">Trusted by:</span>
+                {clientLogos.map((client, index) => (
+                  <div key={index} className={`text-xs font-bold ${client.color} px-2 py-1 bg-gray-100 rounded`}>
+                    {client.name}
+                  </div>
+                ))}
               </div>
             </div>
 
