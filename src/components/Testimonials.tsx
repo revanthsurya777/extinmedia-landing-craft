@@ -42,7 +42,15 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-24 bg-gradient-to-br from-background via-secondary/5 to-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23000\" fill-opacity=\"0.02\"%3E%3Cpath d=\"M40 40c13.8 0 25-11.2 25-25S53.8-10 40-10 15 1.2 15 15s11.2 25 25 25z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      <div className="absolute inset-0 opacity-50">
+        <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <g fill="none" fillRule="evenodd">
+            <g fill="#000" fillOpacity="0.02">
+              <path d="M40 40c13.8 0 25-11.2 25-25S53.8-10 40-10 15 1.2 15 15s11.2 25 25 25z"/>
+            </g>
+          </g>
+        </svg>
+      </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-16">
