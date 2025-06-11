@@ -38,10 +38,10 @@ const TrustBar = () => {
       )
     },
     {
-      name: "WordPress VIP",
+      name: "WordPress",
       logo: (
         <svg viewBox="0 0 24 24" className="w-8 h-8">
-          <path fill="#21759B" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.624 5.367 11.987 11.988 11.987 6.624 0 11.99-5.363 11.99-11.987C24.007 5.367 18.641.001 12.017.001zM1.522 12.025h4.537l2.26 6.907-4.906-6.907zm3.55-1.912H8.57c.744 0 1.266-.067 1.266-.067.522-.067.456-.822-.067-.789 0 0-1.566.133-2.576.133-.977 0-2.543-.133-2.543-.133-.522-.033-.589.756-.067.789 0 0 .489.067.978.067l1.455 3.989-2.043 6.131L1.522 12.025zm6.441 8.436l1.7-4.937 1.744 4.783c.011.033.033.056.056.078-.456.155-.933.311-1.5.076zm7.74-2.665c0-1.566-.6-2.643-1.111-3.487-.689-1.033-1.333-1.9-1.333-2.933 0-1.155.889-2.221 2.132-2.221.056 0 .111.011.167.011C16.456 5.55 14.344 4.017 11.789 4.017c-3.264 0-6.128 1.678-7.774 4.228.222.011 1.4.178 1.4.178.889.067 1.133 1.244.244 1.344-.911.1-1.822-.056-2.377-.122-.533-.067-1.022-.133-1.022-.133-.222 0-.356.311-.133.378 0 0 .6.067 1.144.156.889.144 1.755.456 2.365 1.078.6.589.933 1.344.933 2.321v4.839z"/>
+          <path fill="#21759B" d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.105l1.68 4.605-2.37 7.08L5.354 6.9c.649-.06 1.234-.135 1.234-.135.585-.06.519-.93-.06-.915 0 0-1.755.135-2.88.135H3.53C5.395 4.3 8.472 3 12.02 3c2.652 0 5.068.77 7.124 2.105-.045-.015-.09-.015-.12-.03-.584-.03-.96-.824-.51-1.725.33-.66.735-1.29.735-1.965 0-.9-.405-1.65-.75-2.535C18.684.75 19.53.105 20.415.825c.765.615 1.38 1.38 1.845 2.25.15.3.24.63.33.99.09.42.15.87.15 1.38-.045.855-.345 1.71-.93 2.79l-1.11 3.045zM12.015 24C6.48 24 1.875 19.395 1.875 13.86 1.875 10.035 3.825 6.6 6.945 4.725L3.465 13.86C2.67 16.41 2.775 19.2 3.975 21.645c1.095 2.1 3 3.78 5.25 4.83 1.695.825 3.57 1.2 5.49 1.065L12.015 24zM20.7 7.635l-3.87 11.175c-1.125 3.24-2.94 6.18-5.13 8.625 3.24-.195 6.315-1.62 8.685-3.915 2.37-2.31 3.87-5.52 4.065-9.03.06-1.41-.165-2.82-.75-4.14z"/>
         </svg>
       )
     },
@@ -49,26 +49,23 @@ const TrustBar = () => {
       name: "Salesforce",
       logo: (
         <svg viewBox="0 0 24 24" className="w-8 h-8">
-          <path fill="#00A1E0" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.2 8.4c.4.6.8 1.3.8 2.1 0 1.9-1.5 3.4-3.4 3.4-.2 0-.4 0-.6-.1-.4.2-.8.3-1.3.3-1.5 0-2.8-1.2-2.8-2.8 0-.3.1-.6.2-.9-.1-.2-.2-.5-.2-.8 0-1 .8-1.8 1.8-1.8.4 0 .8.1 1.1.4.4-.3.9-.5 1.4-.5 1.3 0 2.4 1 2.4 2.3 0 .5-.1.9-.4 1.4zm-2.6-1.9c-.6 0-1.1.5-1.1 1.1s.5 1.1 1.1 1.1 1.1-.5 1.1-1.1-.5-1.1-1.1-1.1zm-6.8 3.4c-.6 0-1.1.5-1.1 1.1s.5 1.1 1.1 1.1 1.1-.5 1.1-1.1-.5-1.1-1.1-1.1z"/>
+          <path fill="#00A1E0" d="M8.5 8.6c.6-.9 1.6-1.5 2.8-1.5.9 0 1.8.4 2.4 1 .5-.4 1.1-.6 1.8-.6 1.7 0 3 1.3 3 3 0 .2 0 .4-.1.6.8.4 1.3 1.2 1.3 2.1 0 1.3-1.1 2.4-2.4 2.4h-7.6c-1.5 0-2.7-1.2-2.7-2.7 0-1.3.9-2.4 2.1-2.6-.1-.2-.1-.5-.1-.7 0-1.7 1.4-3 3.1-3 .8 0 1.5.3 2.1.8l-.7.2zm7.4-1.9c.6-.4 1.3-.6 2.1-.6 2.1 0 3.8 1.7 3.8 3.8 0 .3 0 .6-.1.9 1 .5 1.7 1.5 1.7 2.7 0 1.7-1.4 3.1-3.1 3.1h-9.7c-1.9 0-3.4-1.5-3.4-3.4 0-1.6 1.1-3 2.7-3.3-.1-.3-.2-.6-.2-.9 0-2.1 1.7-3.8 3.8-3.8 1 0 1.9.4 2.6 1 .6-.5 1.4-.8 2.2-.8.8 0 1.5.2 2.1.6l-.5.7z"/>
         </svg>
       )
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-secondary/5 via-secondary/10 to-secondary/5 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-r from-purple-50/30 via-pink-50/20 to-blue-50/30 relative overflow-hidden">
       <div className="absolute inset-0 opacity-30">
-        <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <g fill="#000" fillOpacity="0.02">
-            <polygon points="50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40"/>
-          </g>
-        </svg>
+        <div className="absolute top-10 left-20 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-pink-500/8 rounded-full blur-2xl floating-animation" />
+        <div className="absolute bottom-10 right-20 w-28 h-28 bg-gradient-to-br from-blue-500/10 to-cyan-500/8 rounded-full blur-xl floating-animation" style={{ animationDelay: '2s' }} />
       </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
-            Trusted by <span className="text-[#001F3F] bg-gradient-to-r from-[#001F3F] to-blue-600 bg-clip-text text-transparent">Industry Leaders</span>
+            Trusted by <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent">Industry Leaders</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto">
             Certified partners and industry leaders trust us with their digital transformation
@@ -79,13 +76,13 @@ const TrustBar = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="group flex items-center justify-center px-8 py-6 bg-background rounded-2xl border border-border/50 hover:border-[#001F3F]/30 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-[#001F3F]/10 backdrop-blur-sm"
+              className="group flex items-center justify-center px-8 py-6 bg-background rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10 backdrop-blur-sm premium-shadow"
             >
               <div className="flex items-center space-x-4">
                 <div className="w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   {partner.logo}
                 </div>
-                <span className="text-foreground font-semibold text-sm lg:text-base group-hover:text-[#001F3F] transition-colors duration-300">
+                <span className="text-foreground font-semibold text-sm lg:text-base group-hover:text-purple-700 transition-colors duration-300">
                   {partner.name}
                 </span>
               </div>
