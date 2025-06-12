@@ -46,9 +46,7 @@ const Footer = () => {
               Your trusted partner for comprehensive 360° digital marketing solutions.
             </p>
             <div className="space-y-2">
-              <p className="text-sm text-white/80">
-                📍 123 Business Street, City, State 12345
-              </p>
+              <p className="text-sm text-white/80">📍 Road Number 36, JubileeHills, Hyderabad</p>
               <p className="text-sm text-white/80">📞 +91 9617796197 </p>
               <p className="text-sm text-white/80">✉️ info@extinmedia.com</p>
             </div>
