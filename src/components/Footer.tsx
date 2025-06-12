@@ -95,9 +95,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/80 text-sm">
-              © 2024 Extinmedia. All rights reserved.
-            </p>
+            <p className="text-white/80 text-sm">© 2025 Extinmedia. All rights reserved.</p>
             
             {/* Social Links */}
             <div className="flex space-x-4">
