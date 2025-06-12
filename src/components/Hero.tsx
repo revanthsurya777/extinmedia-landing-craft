@@ -38,7 +38,7 @@ const Hero = () => {
           <div className="space-y-8">
             <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] tracking-tight text-shadow-lg">
               <span className="block text-foreground mb-2">Hyderabad's Best</span>
-              <span className="block bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent block ">Digital Marketing Agency</span>
+              <span className="block bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent block py-[21px]">Digital Marketing Agency</span>
               <span className="block text-foreground text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-4 opacity-90">for Growth-Driven Brands</span>
             </h1>
             
