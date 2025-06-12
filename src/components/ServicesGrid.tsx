@@ -111,7 +111,7 @@ const ServicesGrid = () => {
           </div>
           
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-8 leading-tight">
-            Our <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text premium-text-glow text-violet-800">360° Digital Marketing</span>
+            Our <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text premium-text- text-violet-800">360° Digital Marketing</span>
             <br />
             <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-700 mt-4 block">Services in Hyderabad</span>
           </h2>
