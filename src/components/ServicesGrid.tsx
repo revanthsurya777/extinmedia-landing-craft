@@ -1,5 +1,61 @@
+
 import { Search, Target, Facebook, Globe, PenTool, MapPin, Zap, Image, Megaphone, Users, TrendingUp, Award } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+
 const ServicesGrid = () => {
+  const [successfulCampaigns, setSuccessfulCampaigns] = useState(0);
+  const [clientSatisfaction, setClientSatisfaction] = useState(0);
+  const [yearsExperience, setYearsExperience] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  const targetCampaigns = 500;
+  const targetSatisfaction = 98;
+  const targetYears = 10;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            
+            const duration = 2000;
+            const frameRate = 60;
+            const totalFrames = Math.round(duration / (1000 / frameRate));
+            
+            let currentFrame = 0;
+            
+            const timer = setInterval(() => {
+              currentFrame++;
+              const progress = currentFrame / totalFrames;
+              
+              const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+              
+              setSuccessfulCampaigns(Math.floor(targetCampaigns * easeOutQuart));
+              setClientSatisfaction(Math.floor(targetSatisfaction * easeOutQuart));
+              setYearsExperience(Math.floor(targetYears * easeOutQuart));
+
+              if (currentFrame >= totalFrames) {
+                setSuccessfulCampaigns(targetCampaigns);
+                setClientSatisfaction(targetSatisfaction);
+                setYearsExperience(targetYears);
+                clearInterval(timer);
+              }
+            }, 1000 / frameRate);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated, targetCampaigns, targetSatisfaction, targetYears]);
+
   const services = [{
     icon: Search,
     title: "SEO Services in Hyderabad",
@@ -91,16 +147,28 @@ const ServicesGrid = () => {
     hoverColor: "group-hover:text-violet-700",
     features: ["Influencer Outreach", "Campaign Management", "Performance Tracking"]
   }];
-  return <section id="services" className="py-32 bg-gradient-to-br from-secondary/8 via-background to-secondary/12 relative overflow-hidden">
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback to open form if contact section doesn't exist
+      window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank');
+    }
+  };
+
+  return (
+    <section id="services" className="py-32 bg-gradient-to-br from-secondary/8 via-background to-secondary/12 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-32 right-24 w-48 h-48 bg-gradient-to-br from-purple-500/10 to-pink-500/8 rounded-full blur-3xl floating-animation premium-glow" />
         <div className="absolute bottom-32 left-24 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-cyan-500/8 rounded-full blur-2xl floating-animation premium-glow" style={{
-        animationDelay: '3s'
-      }} />
+          animationDelay: '3s'
+        }} />
         <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-gradient-to-br from-emerald-500/8 to-teal-500/8 rounded-full blur-xl floating-animation premium-glow" style={{
-        animationDelay: '1.5s'
-      }} />
+          animationDelay: '1.5s'
+        }} />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -111,29 +179,24 @@ const ServicesGrid = () => {
           </div>
           
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-8 leading-tight">
-            Our <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text premium-text- text-violet-800">360° Digital Marketing</span>
+            Our <span className="text-purple-700 font-black">360° Digital Marketing</span>
             <br />
-            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-700 mt-4 block">Services in Hyderabad</span>
+            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 block">Services in Hyderabad</span>
           </h2>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-medium leading-relaxed mb-8">
             Comprehensive digital marketing solutions from <span className="text-purple-700 font-bold">Hyderabad's top digital marketing company</span>. 
             From SEO services to PPC management, we deliver results that matter.
           </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold">
-            {["SEO Expert", "PPC Certified", "Meta Partner", "Google Certified"].map((badge, index) => <span key={index} className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-4 py-2 rounded-full border border-purple-500/20 text-purple-700">
-                {badge}
-              </span>)}
-          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => {
-          const Icon = service.icon;
-          return <div key={index} className={`group relative p-8 bg-background/90 backdrop-blur-md rounded-3xl border ${service.borderColor} hover:border-opacity-60 transition-all duration-700 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-4 premium-shadow hover:premium-shadow-hover overflow-hidden`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            const Icon = service.icon;
+            return (
+              <div key={index} className={`group relative p-8 bg-background/90 backdrop-blur-md rounded-3xl border ${service.borderColor} hover:border-opacity-60 transition-all duration-700 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-4 premium-shadow hover:premium-shadow-hover overflow-hidden`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                 {/* Enhanced Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 
@@ -156,30 +219,78 @@ const ServicesGrid = () => {
                     </p>
                     
                     <div className="space-y-2 pt-2">
-                      {service.features.map((feature, featureIndex) => <div key={featureIndex} className={`flex items-center text-xs ${service.iconColor} font-semibold`}>
+                      {service.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className={`flex items-center text-xs ${service.iconColor} font-semibold`}>
                           <div className={`w-1.5 h-1.5 ${service.iconColor.replace('text-', 'bg-')} rounded-full mr-2`} />
                           {feature}
-                        </div>)}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
 
                 {/* Enhanced Hover Effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              </div>;
-        })}
+              </div>
+            );
+          })}
         </div>
         
+        {/* Enhanced Trust Indicators with Animated Statistics */}
+        <div className="pt-20 space-y-12" ref={statsRef}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="text-center group">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                {successfulCampaigns.toLocaleString()}+
+              </div>
+              <div className="text-lg text-foreground font-semibold">Successful Campaigns</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                {clientSatisfaction}%
+              </div>
+              <div className="text-lg text-foreground font-semibold">Client Satisfaction</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                {yearsExperience}+
+              </div>
+              <div className="text-lg text-foreground font-semibold">Years Experience</div>
+            </div>
+          </div>
+          
+          <div className="flex items-center justify-center space-x-3">
+            <TrendingUp className="w-6 h-6 text-emerald-600" />
+            <p className="text-lg text-foreground font-bold">
+              Trusted by <span className="text-purple-700 font-black">500+</span> businesses across Hyderabad
+            </p>
+            <Users className="w-6 h-6 text-cyan-600" />
+          </div>
+        </div>
+
         {/* Call-to-Action Section */}
         <div className="text-center mt-20">
-          <p className="text-lg text-muted-foreground mb-6 font-semibold">
+          <p className="text-lg text-foreground mb-8 font-semibold">
             Ready to grow your business with <span className="text-purple-700 font-bold">Hyderabad's best digital marketing experts</span>?
           </p>
-          <button className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 hover:from-purple-700 hover:via-pink-600 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105">
-            Get Free Digital Marketing Audit
-          </button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <button 
+              onClick={scrollToContact}
+              className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 hover:from-purple-700 hover:via-pink-600 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105"
+            >
+              Get Free Digital Marketing Audit
+            </button>
+            <button 
+              onClick={scrollToContact}
+              className="bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 hover:from-emerald-700 hover:via-teal-600 hover:to-cyan-700 text-white px-8 py-4 rounded-2xl font-bold text-lg premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105"
+            >
+              Watch in Action
+            </button>
+          </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ServicesGrid;
