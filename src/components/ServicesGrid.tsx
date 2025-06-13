@@ -1,5 +1,6 @@
 import { Search, Target, Facebook, Globe, PenTool, MapPin, Zap, Image, Megaphone, Users, TrendingUp, Award } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+
 const ServicesGrid = () => {
   const [successfulCampaigns, setSuccessfulCampaigns] = useState(0);
   const [clientSatisfaction, setClientSatisfaction] = useState(0);
@@ -169,7 +170,7 @@ const ServicesGrid = () => {
             <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 block">Services in Hyderabad</span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-medium leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto font-medium leading-relaxed mb-8">
             Comprehensive digital marketing solutions from <span className="text-purple-700 font-bold">Hyderabad's top digital marketing company</span>. 
             From SEO services to PPC management, we deliver results that matter.
           </p>
@@ -188,8 +189,8 @@ const ServicesGrid = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl" />
                 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col space-y-6 h-full">
-                  <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:scale-110 self-start transition-all duration-500`}>
+                <div className="relative z-10 flex flex-col space-y-6 h-full items-center text-center">
+                  <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:scale-110 transition-all duration-500`}>
                     <Icon className={`h-12 w-12 ${service.iconColor} ${service.hoverColor} transition-all duration-500 group-hover:scale-110`} />
                   </div>
                   
@@ -198,12 +199,12 @@ const ServicesGrid = () => {
                       {service.title}
                     </h3>
                     
-                    <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                    <p className="text-sm text-foreground leading-relaxed font-medium">
                       {service.description}
                     </p>
                     
                     <div className="space-y-2 pt-2">
-                      {service.features.map((feature, featureIndex) => <div key={featureIndex} className={`flex items-center text-xs ${service.iconColor} font-semibold`}>
+                      {service.features.map((feature, featureIndex) => <div key={featureIndex} className={`flex items-center justify-center text-xs ${service.iconColor} font-semibold`}>
                           <div className={`w-1.5 h-1.5 ${service.iconColor.replace('text-', 'bg-')} rounded-full mr-2`} />
                           {feature}
                         </div>)}
