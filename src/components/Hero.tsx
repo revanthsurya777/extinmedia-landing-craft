@@ -62,9 +62,9 @@ const Hero = () => {
             </p>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
               Transform your business with our{" "}
-              <span className="text-orange-700 font-semibold">cost-effective marketing strategies</span>{" "}
+              <span className="text-orange-700 font-semibold">Best Cost-Effective Marketing Strategies</span>{" "}
               designed for startups and enterprises. Experience{" "}
-              <span className="text-purple-700 font-bold">measurable growth</span>{" "}
+              <span className="text-purple-700 font-bold">Excellent Growth</span>{" "}
               with Hyderabad's most trusted digital marketing experts.
             </p>
           </div>
