@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Play, Sparkles, Zap, TrendingUp, MapPin, Award, Users2 } from "lucide-react";
 const Hero = () => {
@@ -56,32 +55,32 @@ const Hero = () => {
           <div className="space-y-8">
             <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] tracking-tight text-shadow-lg">
               <span className="block text-foreground mb-2">Hyderabad's Best</span>
-              <span className="block bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent block py-[21px]">Digital Marketing Agency</span>
+              <span className="block bg-gradient-to-r from-slate-600 via-slate-700 to-slate-600 bg-clip-text text-transparent block py-[21px]">Digital Marketing Agency</span>
               <span className="block text-foreground text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-4 opacity-90">for Growth-Driven Brands</span>
             </h1>
             
             <div className="flex flex-wrap justify-center gap-4 text-lg md:text-2xl lg:text-3xl font-bold">
-              <span className="bg-gradient-to-r from-purple-500/15 to-pink-500/15 text-purple-700 px-4 py-2 rounded-full border border-purple-500/20">SEO Experts</span>
-              <span className="bg-gradient-to-r from-blue-500/15 to-cyan-500/15 text-blue-700 px-4 py-2 rounded-full border border-blue-500/20">PPC Specialists</span>
-              <span className="bg-gradient-to-r from-emerald-500/15 to-teal-500/15 text-emerald-700 px-4 py-2 rounded-full border border-emerald-500/20">Social Media Experts</span>
-              <span className="bg-gradient-to-r from-orange-500/15 to-amber-500/15 text-orange-700 px-4 py-2 rounded-full border border-orange-500/20">Web Development</span>
+              <span className="bg-slate-50 text-slate-700 px-4 py-2 rounded-full border border-slate-200">SEO Experts</span>
+              <span className="bg-slate-50 text-slate-700 px-4 py-2 rounded-full border border-slate-200">PPC Specialists</span>
+              <span className="bg-slate-50 text-slate-700 px-4 py-2 rounded-full border border-slate-200">Social Media Experts</span>
+              <span className="bg-slate-50 text-slate-700 px-4 py-2 rounded-full border border-slate-200">Web Development</span>
             </div>
           </div>
 
           {/* Enhanced Description with Keywords */}
           <div className="space-y-6">
             <p className="text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed font-medium text-foreground text-center">
-              <span className="text-purple-700 font-bold text-center">Extin Media</span> - Top-Rated Best Digital Marketing Agency delivering exceptional{" "}
-              <span className="text-blue-700 font-bold">Best SEO service</span>,{" "}
-              <span className="text-emerald-700 font-semibold">Best Google Ads Agency</span> and{" "}
-              <span className="text-pink-700 font-semibold">Best Social Media Marketing Solutions</span>{" "}
+              <span className="text-slate-700 font-bold text-center">Extin Media</span> - Top-Rated Best Digital Marketing Agency delivering exceptional{" "}
+              <span className="text-slate-600 font-bold">Best SEO service</span>,{" "}
+              <span className="text-slate-600 font-semibold">Best Google Ads Agency</span> and{" "}
+              <span className="text-slate-600 font-semibold">Best Social Media Marketing Solutions</span>{" "}
               and Many More🙃.
             </p>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
               Transform your business with our{" "}
-              <span className="text-orange-700 font-semibold">Best Cost-Effective Marketing Strategies</span>{" "}
+              <span className="text-slate-600 font-semibold">Best Cost-Effective Marketing Strategies</span>{" "}
               designed for startups and enterprises. Experience{" "}
-              <span className="text-purple-700 font-bold">Excellent Growth</span>{" "}
+              <span className="text-slate-700 font-bold">Excellent Growth</span>{" "}
               with Hyderabad's most trusted digital marketing experts.
             </p>
           </div>
