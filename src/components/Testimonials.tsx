@@ -5,21 +5,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Rajesh Sharma",
-      company: "TechnoVision Solutions, Gachibowli",
+      company: "VM Motors, Gachibowli",
       image: "/placeholder.svg",
       rating: 5,
       quote: "Extin Media transformed our digital presence completely. Our lead generation increased by 300% in just 3 months! Best digital marketing agency in Hyderabad."
     },
     {
       name: "Priya Reddy",
-      company: "Fashion Hub, Banjara Hills",
+      company: "ICS, Banjara Hills",
       image: "/placeholder.svg",
       rating: 5,
       quote: "The AI-generated content and SEO optimization helped us rank #1 for our target keywords. Incredible results from Hyderabad's top marketing experts!"
     },
     {
       name: "Arjun Patel",
-      company: "Foodie's Paradise, Jubilee Hills",
+      company: "Shubham Restaurant, Jubilee Hills",
       image: "/placeholder.svg",
       rating: 5,
       quote: "Their local SEO services brought customers directly to our door. Local visibility increased dramatically across Hyderabad."
@@ -33,7 +33,7 @@ const Testimonials = () => {
     },
     {
       name: "Vikram Singh",
-      company: "Growth Ventures, Madhapur",
+      company: "Pansh Ventures, Madhapur",
       image: "/placeholder.svg",
       rating: 5,
       quote: "The influencer marketing campaigns exceeded all expectations. Brand awareness skyrocketed across Hyderabad market!"

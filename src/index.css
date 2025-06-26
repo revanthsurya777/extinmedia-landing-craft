@@ -199,6 +199,33 @@
   .bg-grid-small-black\/\[0\.015\] {
     background-image: radial-gradient(circle, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
   }
+
+  /* Mobile-First Enhanced Animations */
+  @media (max-width: 768px) {
+    .mobile-enhance {
+      transform: scale(1.02);
+      box-shadow: 
+        0 8px 25px rgba(147, 51, 234, 0.15),
+        0 16px 50px rgba(219, 39, 119, 0.1),
+        0 24px 75px rgba(59, 130, 246, 0.08);
+    }
+    
+    .mobile-vibrant {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(219, 39, 119, 0.08) 50%, rgba(59, 130, 246, 0.1) 100%);
+      border: 2px solid rgba(147, 51, 234, 0.2);
+    }
+    
+    .mobile-pop {
+      animation: mobile-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .mobile-glow {
+      box-shadow: 
+        0 0 30px rgba(147, 51, 234, 0.4),
+        0 0 60px rgba(219, 39, 119, 0.3),
+        0 0 90px rgba(59, 130, 246, 0.2);
+    }
+  }
 }
 
 /* World-Class Animations */
@@ -260,6 +287,32 @@
   }
 }
 
+@keyframes mobile-bounce {
+  0% {
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) translateY(-10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-slide-up {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* Enhanced Shimmer Effect */
 .shimmer-effect {
   background: linear-gradient(
@@ -282,7 +335,11 @@
   animation: scale-in 0.6s ease-out forwards;
 }
 
-/* Professional Scrollbar */
+.mobile-slide-animation {
+  animation: mobile-slide-up 0.8s ease-out forwards;
+}
+
+/* Professional Scrollbar */ 
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -310,4 +367,34 @@
 *:focus-visible {
   outline: 2px solid #001F3F;
   outline-offset: 2px;
+}
+
+/* Mobile-First Responsive Enhancements */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  button {
+    min-height: 48px;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+  }
 }

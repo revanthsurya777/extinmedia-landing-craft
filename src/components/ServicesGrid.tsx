@@ -1,3 +1,4 @@
+
 import { Search, Target, Facebook, Globe, PenTool, MapPin, Zap, Image, Megaphone, Users, TrendingUp, Award } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
@@ -6,10 +7,13 @@ const ServicesGrid = () => {
   const [clientSatisfaction, setClientSatisfaction] = useState(0);
   const [yearsExperience, setYearsExperience] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(new Set());
   const statsRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const targetCampaigns = 500;
   const targetSatisfaction = 98;
   const targetYears = 10;
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -36,13 +40,39 @@ const ServicesGrid = () => {
         }
       });
     }, {
-      threshold: 0.3
+      threshold: 0.1
     });
+
+    // Card animation observer
+    const cardObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-index') || '0');
+          setVisibleCards(prev => new Set(prev).add(index));
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '-50px'
+    });
+
     if (statsRef.current) {
       observer.observe(statsRef.current);
     }
-    return () => observer.disconnect();
+
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        card.setAttribute('data-index', index.toString());
+        cardObserver.observe(card);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+      cardObserver.disconnect();
+    };
   }, [hasAnimated, targetCampaigns, targetSatisfaction, targetYears]);
+
   const services = [{
     icon: Search,
     title: "SEO Services in Hyderabad",
@@ -72,7 +102,7 @@ const ServicesGrid = () => {
     features: ["Content Strategy", "Ad Campaigns", "Community Management"]
   }, {
     icon: Globe,
-    title: "Website Design & Development",
+    title: "Web Development",
     description: "Create stunning, mobile-responsive websites that convert visitors into customers. Professional web development for Hyderabad businesses.",
     gradient: "from-purple-500/15 to-violet-500/10",
     iconColor: "text-purple-600",
@@ -134,6 +164,7 @@ const ServicesGrid = () => {
     hoverColor: "group-hover:text-violet-700",
     features: ["Influencer Outreach", "Campaign Management", "Performance Tracking"]
   }];
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -145,6 +176,7 @@ const ServicesGrid = () => {
       window.open('https://forms.gle/a23i2D6fcAqUW7Dt5', '_blank');
     }
   };
+
   return <section id="services" className="py-32 bg-gradient-to-br from-secondary/8 via-background to-secondary/12 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
@@ -179,18 +211,27 @@ const ServicesGrid = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => {
           const Icon = service.icon;
-          return <div key={index} className={`group relative p-8 bg-background/90 backdrop-blur-md rounded-3xl border ${service.borderColor} hover:border-opacity-60 transition-all duration-700 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-4 premium-shadow hover:premium-shadow-hover overflow-hidden`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+          const isVisible = visibleCards.has(index);
+          return <div
+              key={index}
+              ref={el => cardsRef.current[index] = el}
+              className={`group relative p-8 bg-background/90 backdrop-blur-md rounded-3xl border ${service.borderColor} hover:border-opacity-60 transition-all duration-700 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-4 premium-shadow hover:premium-shadow-hover overflow-hidden
+                ${isVisible ? 'mobile-pop mobile-enhance' : 'opacity-0 translate-y-8'}
+                md:opacity-100 md:translate-y-0 md:mobile-pop-0`}
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                transitionDelay: `${index * 0.1}s`
+              }}
+            >
                 {/* Enhanced Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 md:opacity-20 mobile-vibrant`} />
                 
                 {/* Premium Shimmer Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl" />
                 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col space-y-6 h-full items-center text-center">
-                  <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:scale-110 transition-all duration-500`}>
+                  <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:scale-110 transition-all duration-500 mobile-glow`}>
                     <Icon className={`h-12 w-12 ${service.iconColor} ${service.hoverColor} transition-all duration-500 group-hover:scale-110`} />
                   </div>
                   
@@ -222,19 +263,19 @@ const ServicesGrid = () => {
         <div className="pt-20 space-y-12" ref={statsRef}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="text-center group">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300 mobile-glow">
                 {successfulCampaigns.toLocaleString()}+
               </div>
               <div className="text-lg text-foreground font-semibold">Successful Campaigns</div>
             </div>
             <div className="text-center group">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300 mobile-glow">
                 {clientSatisfaction}%
               </div>
               <div className="text-lg text-foreground font-semibold">Client Satisfaction</div>
             </div>
             <div className="text-center group">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300 mobile-glow">
                 {yearsExperience}+
               </div>
               <div className="text-lg text-foreground font-semibold">Years Experience</div>
@@ -256,10 +297,9 @@ const ServicesGrid = () => {
             Ready to grow your business with <span className="text-purple-700 font-bold">Hyderabad's best digital marketing experts</span>?
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 hover:from-purple-700 hover:via-pink-600 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105">
+            <button onClick={scrollToContact} className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 hover:from-purple-700 hover:via-pink-600 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105 mobile-enhance">
               Get Free Digital Marketing Audit
             </button>
-            
           </div>
         </div>
       </div>
