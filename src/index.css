@@ -146,18 +146,6 @@
     animation: premium-float 8s ease-in-out infinite;
   }
 
-  /* Premium Glow Effects */
-  .premium-glow {
-    filter: drop-shadow(0 0 20px rgba(0, 31, 63, 0.2));
-  }
-
-  .glow-effect {
-    box-shadow: 
-      0 0 20px rgba(0, 31, 63, 0.2),
-      0 0 40px rgba(0, 31, 63, 0.1),
-      0 0 60px rgba(0, 31, 63, 0.05);
-  }
-
   /* World-Class Text Shadows */
   .text-shadow {
     text-shadow: 
@@ -217,13 +205,6 @@
     
     .mobile-pop {
       animation: mobile-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    
-    .mobile-glow {
-      box-shadow: 
-        0 0 30px rgba(147, 51, 234, 0.4),
-        0 0 60px rgba(219, 39, 119, 0.3),
-        0 0 90px rgba(59, 130, 246, 0.2);
     }
   }
 }

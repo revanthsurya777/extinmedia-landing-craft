@@ -180,11 +180,11 @@ const ServicesGrid = () => {
   return <section id="services" className="py-32 bg-gradient-to-br from-secondary/8 via-background to-secondary/12 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-32 right-24 w-48 h-48 bg-gradient-to-br from-purple-500/10 to-pink-500/8 rounded-full blur-3xl floating-animation premium-glow" />
-        <div className="absolute bottom-32 left-24 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-cyan-500/8 rounded-full blur-2xl floating-animation premium-glow" style={{
+        <div className="absolute top-32 right-24 w-48 h-48 bg-gradient-to-br from-purple-500/10 to-pink-500/8 rounded-full blur-3xl floating-animation" />
+        <div className="absolute bottom-32 left-24 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-cyan-500/8 rounded-full blur-2xl floating-animation" style={{
         animationDelay: '3s'
       }} />
-        <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-gradient-to-br from-emerald-500/8 to-teal-500/8 rounded-full blur-xl floating-animation premium-glow" style={{
+        <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-gradient-to-br from-emerald-500/8 to-teal-500/8 rounded-full blur-xl floating-animation" style={{
         animationDelay: '1.5s'
       }} />
       </div>
@@ -231,7 +231,7 @@ const ServicesGrid = () => {
                 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col space-y-6 h-full items-center text-center">
-                  <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:scale-110 transition-all duration-500 mobile-glow`}>
+                  <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:scale-110 transition-all duration-500`}>
                     <Icon className={`h-12 w-12 ${service.iconColor} ${service.hoverColor} transition-all duration-500 group-hover:scale-110`} />
                   </div>
                   
@@ -263,19 +263,19 @@ const ServicesGrid = () => {
         <div className="pt-20 space-y-12" ref={statsRef}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="text-center group">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300 mobile-glow">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300">
                 {successfulCampaigns.toLocaleString()}+
               </div>
               <div className="text-lg text-foreground font-semibold">Successful Campaigns</div>
             </div>
             <div className="text-center group">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300 mobile-glow">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300">
                 {clientSatisfaction}%
               </div>
               <div className="text-lg text-foreground font-semibold">Client Satisfaction</div>
             </div>
             <div className="text-center group">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300 mobile-glow">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
                 {yearsExperience}+
               </div>
               <div className="text-lg text-foreground font-semibold">Years Experience</div>
