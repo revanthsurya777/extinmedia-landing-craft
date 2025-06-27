@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { Play, Sparkles, Zap, TrendingUp, MapPin, Award, Users2 } from "lucide-react";
+import { ArrowRight, Sparkles, Zap } from "lucide-react";
+
 const Hero = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -9,7 +10,6 @@ const Hero = () => {
         behavior: 'smooth'
       });
     } else {
-      // If contact section doesn't exist, scroll to services section
       const servicesSection = document.getElementById('services');
       if (servicesSection) {
         servicesSection.scrollIntoView({
@@ -19,117 +19,84 @@ const Hero = () => {
     }
   };
 
-  return <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/5 to-background overflow-hidden">
-      {/* Enhanced Background Pattern with Premium Feel */}
+  return (
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
+      {/* Minimal Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid-small-black/[0.015] bg-[size:30px_30px]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#001F3F]/3 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#001F3F]/5 via-transparent to-transparent" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500/3 rounded-full blur-3xl" />
       </div>
       
-      {/* Premium Floating Elements with Eye-Catching Colors */}
-      <div className="absolute top-32 left-20 w-40 h-40 bg-gradient-to-br from-purple-500/15 to-pink-500/10 rounded-full blur-3xl floating-animation premium-glow" style={{
-      animationDelay: '0s'
-    }} />
-      <div className="absolute bottom-40 right-24 w-32 h-32 bg-gradient-to-br from-blue-500/12 to-cyan-500/10 rounded-full blur-2xl floating-animation premium-glow" style={{
-      animationDelay: '2s'
-    }} />
-      <div className="absolute top-1/2 left-20 w-24 h-24 bg-gradient-to-br from-emerald-500/10 to-teal-500/8 rounded-full blur-xl floating-animation premium-glow" style={{
-      animationDelay: '4s'
-    }} />
-      <div className="absolute top-20 right-1/3 w-20 h-20 bg-gradient-to-br from-orange-500/8 to-yellow-500/8 rounded-full blur-lg floating-animation premium-glow" style={{
-      animationDelay: '1s'
-    }} />
-      
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto text-center space-y-12">
-          {/* Premium Badge with Location */}
-          <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 backdrop-blur-sm premium-shadow hover:premium-shadow-hover transition-all duration-500 hover:scale-105 group">
-            <Award className="w-5 h-5 text-purple-600 mr-3 group-hover:rotate-12 transition-transform duration-300" />
-            <span className="text-sm font-bold text-purple-700 mr-2">Award-Winning Digital Marketing Agency</span>
-            <div className="w-1 h-1 bg-purple-600/40 rounded-full mx-2" />
-            <MapPin className="w-4 h-4 text-purple-600 mr-1" />
-            <span className="text-sm font-semibold text-purple-700">Hyderabad</span>
+        <div className="max-w-6xl mx-auto text-center space-y-16">
+          {/* Premium Badge */}
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gray-50 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:scale-105">
+            <Sparkles className="w-4 h-4 text-blue-600 mr-2" />
+            <span className="text-sm font-semibold text-gray-700">Digital Marketing Agency • Hyderabad</span>
           </div>
 
-          {/* SEO-Optimized Main Heading */}
+          {/* Hero Headline - Minimalist & Bold */}
           <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] tracking-tight text-shadow-lg">
-              <span className="block text-foreground mb-2">Hyderabad's Best</span>
-              <span className="block bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent block py-[21px]">Digital Marketing Agency</span>
-              <span className="block text-foreground text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-4 opacity-90">for Growth-Driven Brands</span>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.85] tracking-tight">
+              <span className="block text-gray-900 mb-4">Marketing</span>
+              <span className="block text-blue-600">that Delivers</span>
+              <span className="block text-gray-900 text-5xl md:text-6xl lg:text-7xl font-bold mt-6">Results.</span>
             </h1>
-            
-            <div className="flex flex-wrap justify-center gap-4 text-lg md:text-2xl lg:text-3xl font-bold">
-              <span className="bg-gradient-to-r from-purple-500/15 to-pink-500/15 text-purple-700 px-4 py-2 rounded-full border border-purple-500/20">SEO Experts</span>
-              <span className="bg-gradient-to-r from-blue-500/15 to-cyan-500/15 text-blue-700 px-4 py-2 rounded-full border border-blue-500/20">PPC Specialists</span>
-              <span className="bg-gradient-to-r from-emerald-500/15 to-teal-500/15 text-emerald-700 px-4 py-2 rounded-full border border-emerald-500/20">Social Media Experts</span>
-              <span className="bg-gradient-to-r from-orange-500/15 to-amber-500/15 text-orange-700 px-4 py-2 rounded-full border border-orange-500/20">Web Development</span>
-            </div>
           </div>
 
-          {/* Enhanced Description with Keywords */}
-          <div className="space-y-6">
-            <p className="text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed font-medium text-foreground text-center">
-              <span className="text-purple-700 font-bold text-center">Extin Media</span> - Top-Rated Best Digital Marketing Agency delivering exceptional{" "}
-              <span className="text-blue-700 font-bold">Best SEO service</span>,{" "}
-              <span className="text-emerald-700 font-semibold">Best Google Ads Agency</span> and{" "}
-              <span className="text-pink-700 font-semibold">Best Social Media Marketing Solutions</span>{" "}
-              and Many More🙃.
-            </p>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
-              Transform your business with our{" "}
-              <span className="text-orange-700 font-semibold">Best Cost-Effective Marketing Strategies</span>{" "}
-              designed for startups and enterprises. Experience{" "}
-              <span className="text-purple-700 font-bold">Excellent Growth</span>{" "}
-              with Hyderabad's most trusted digital marketing experts.
+          {/* Clean Value Proposition */}
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed">
+              We help growth-driven brands in Hyderabad scale digitally through 
+              <span className="text-blue-600 font-semibold"> data-driven SEO</span>, 
+              <span className="text-purple-600 font-semibold"> performance marketing</span>, and 
+              <span className="text-emerald-600 font-semibold"> strategic branding</span>.
             </p>
           </div>
 
-          {/* Premium CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center pt-8">
-            <Button size="lg" className="group bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 hover:from-purple-700 hover:via-pink-600 hover:to-blue-700 text-white px-12 py-8 text-xl font-bold min-w-80 premium-shadow hover:premium-shadow-hover transition-all duration-700 transform hover:scale-105 relative overflow-hidden rounded-2xl" onClick={scrollToContact}>
-              <div className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Zap className="mr-4 h-7 w-7 group-hover:scale-125 transition-transform duration-300" />
-              <span className="relative z-10">Get Free Strategy Consultation</span>
+          {/* Minimal CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+            <Button 
+              size="lg" 
+              className="group bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              onClick={scrollToContact}
+            >
+              <span>Let's Scale Your Brand</span>
+              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             
-            <Button size="lg" className="group bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 hover:from-blue-700 hover:via-cyan-600 hover:to-purple-700 text-white px-12 py-8 text-xl font-bold min-w-80 premium-shadow hover:premium-shadow-hover transition-all duration-700 transform hover:scale-105 rounded-2xl" onClick={scrollToContact}>
-              <Play className="mr-4 h-7 w-7 group-hover:scale-125 transition-transform duration-300" />
-              Watch in Action
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="group border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-10 py-6 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
+              onClick={scrollToContact}
+            >
+              <Zap className="mr-3 h-5 w-5" />
+              <span>Free Strategy Call</span>
             </Button>
           </div>
 
-          {/* Enhanced Trust Indicators with Statistics */}
+          {/* Clean Trust Indicators */}
           <div className="pt-20 space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="text-center group">
-                <div className="text-4xl font-black text-purple-600 mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
-                <div className="text-sm text-muted-foreground font-semibold">Successful Campaigns</div>
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-black text-gray-900 mb-2">500+</div>
+                <div className="text-sm text-gray-600 font-medium">Projects</div>
               </div>
-              <div className="text-center group">
-                <div className="text-4xl font-black text-pink-600 mb-2 group-hover:scale-110 transition-transform duration-300">98%</div>
-                <div className="text-sm text-muted-foreground font-semibold">Client Satisfaction</div>
+              <div className="text-center">
+                <div className="text-3xl font-black text-gray-900 mb-2">98%</div>
+                <div className="text-sm text-gray-600 font-medium">Success Rate</div>
               </div>
-              <div className="text-center group">
-                <div className="text-4xl font-black text-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">10+</div>
-                <div className="text-sm text-muted-foreground font-semibold">Years Experience</div>
+              <div className="text-center">
+                <div className="text-3xl font-black text-gray-900 mb-2">10+</div>
+                <div className="text-sm text-gray-600 font-medium">Years</div>
               </div>
-            </div>
-            
-            <div className="flex items-center justify-center space-x-3">
-              <TrendingUp className="w-6 h-6 text-emerald-600" />
-              <p className="text-lg text-muted-foreground font-bold">
-                Trusted by <span className="text-purple-700 font-black">500+</span> businesses across Hyderabad
-              </p>
-              <Users2 className="w-6 h-6 text-cyan-600" />
             </div>
           </div>
         </div>
       </div>
-
-      {/* Enhanced Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

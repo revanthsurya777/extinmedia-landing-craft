@@ -1,26 +1,24 @@
 
+import HeaderMinimal from "@/components/HeaderMinimal";
 import Hero from "@/components/Hero";
-import ServicesGrid from "@/components/ServicesGrid";
-import Testimonials from "@/components/Testimonials";
-import KeyMetrics from "@/components/KeyMetrics";
-import TrustBar from "@/components/TrustBar";
+import ServicesMinimal from "@/components/ServicesMinimal";
+import AboutMinimal from "@/components/AboutMinimal";
+import TestimonialsMinimal from "@/components/TestimonialsMinimal";
 import TrustLogos from "@/components/TrustLogos";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import CTAMinimal from "@/components/CTAMinimal";
+import FooterMinimal from "@/components/FooterMinimal";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div className="min-h-screen bg-white">
+      <HeaderMinimal />
       <Hero />
+      <ServicesMinimal />
+      <AboutMinimal />
+      <TestimonialsMinimal />
       <TrustLogos />
-      <ServicesGrid />
-      <Testimonials />
-      <KeyMetrics />
-      <TrustBar />
-      <FinalCTA />
-      <Footer />
+      <CTAMinimal />
+      <FooterMinimal />
     </div>
   );
 };
